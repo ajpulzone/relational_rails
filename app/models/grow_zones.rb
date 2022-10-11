@@ -1,0 +1,3 @@
+class GrowZones < ApplicationRecord
+  
+end

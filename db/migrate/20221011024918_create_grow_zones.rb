@@ -1,0 +1,7 @@
+class CreateGrowZones < ActiveRecord::Migration[5.2]
+  def change
+    create_table :grow_zones do |g|
+      g.string :title
+    end
+  end
+end

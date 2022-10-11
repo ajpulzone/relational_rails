@@ -1,0 +1,5 @@
+<h1>Grow Zones</h1>
+
+<% @grow_zones.each do |grow_zone| %>
+  <h3><a href="/grow_zones/<%= grow_zone.id %>"><%= grow_zone.title %></a></h3>
+    <% end %>
