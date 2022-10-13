@@ -1,6 +1,6 @@
 class GrowZonesController <ApplicationController
   def index
-    @grow_zones = GrowZones.all
+    @grow_zones = GrowZone.all
   end
 
   def new
@@ -9,9 +9,15 @@ class GrowZonesController <ApplicationController
   def create
     grow_zone = GrowZones.new({
       id: params[:id],
-      title: params[:grow_zones][:title],
+      name: params[:grow_zones][:name],
+      sq_feet: params[:grow_zones][:sq_feet],
+      mulched: params[:grow_zones][:mulched]
     })
     grow_zone.save
     redirect_to "/"
   end
+
+  def show
+  end
+
 end

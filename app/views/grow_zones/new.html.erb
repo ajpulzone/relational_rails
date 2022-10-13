@@ -1,6 +1,11 @@
 <form action="/grow_zones" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"
   <p>Enter a new grow zone: </p>
-  <input type="Text" name="grow_zones[title]"/><br/>
+  <label for="grow_zones[name]">Name:</label><br>
+  <input type="text" name="grow_zones[name]"/><br/>
+  <label for="grow_zones[sq_feet]">Square Feet:</label><br>
+  <input type="text" name="grow_zones[sq_feet]"/><br/>
+  <label for="grow_zones[mulched]">Mulched? (true/false):</label><br>
+  <input type="text" name="grow_zones[mulched]"/><br/>
   <input type="submit"/>
 </form>

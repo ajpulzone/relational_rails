@@ -16,7 +16,11 @@ ActiveRecord::Schema.define(version: 2022_10_11_024918) do
   enable_extension "plpgsql"
 
   create_table "grow_zones", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
+    t.integer "sq_feet"
+    t.boolean "mulched"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
