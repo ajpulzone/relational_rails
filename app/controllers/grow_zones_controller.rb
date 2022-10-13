@@ -1,4 +1,4 @@
-class GrowZonesController <ApplicationController
+ class GrowZonesController <ApplicationController
   def index
     @grow_zones = GrowZone.all
   end
@@ -18,6 +18,11 @@ class GrowZonesController <ApplicationController
   end
 
   def show
+    @grow_zone = GrowZone.find(params[:id])
+    #get the grow zone that is specified, access the database
+    #need to get the id
+    #access the database and save id to an instance variable
+    #that you can access in your view
   end
 
 end
