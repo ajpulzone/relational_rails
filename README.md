@@ -39,7 +39,7 @@ User Story 4, Child Show
   Then I see the child with that id including the child's attributes
   (data from each column that is on the child table)
 
-[ ] done
+[X] done
 User Story 5, Parent Children Index 
   As a visitor
   When I visit '/parents/:parent_id/child_table_name'
