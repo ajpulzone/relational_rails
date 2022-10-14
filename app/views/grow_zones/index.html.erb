@@ -1,5 +1,5 @@
 <h1>Grow Zones</h1>
 
 <% @grow_zones.each do |grow_zone| %>
-  <h3><a href="/grow_zones/<%= grow_zone.id %>"><%= grow_zone.name %></a></h3>
+  <h2><a href="/grow_zones/<%= grow_zone.id %>"><%= grow_zone.name%>&nbsp&nbsp&nbsp&nbsp&nbsp<%= grow_zone.created_at%></a></h3>
     <% end %>
