@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get "/grow_zones/new", to: "grow_zones#new"
   post "/grow_zones", to: "grow_zones#create"
   get "/grow_zones/:id", to: "grow_zones#show"
+
+  get "/plants", to: "plants#index"
 end
