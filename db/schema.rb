@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_232210) do
     t.string "name"
     t.boolean "edible"
     t.integer "harvest_qt"
+    t.integer "grow_zone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

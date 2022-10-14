@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "/grow_zones/:id", to: "grow_zones#show"
 
   get "/plants", to: "plants#index"
+  get "plants/:id", to: "plants#show"
 end

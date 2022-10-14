@@ -27,7 +27,7 @@ describe "As a user" do
   end 
 
   #   User Story 2, Parent Show 
-  describe "As a visitor" do
+  describe "As a user" do
     describe "When I visit '/grow_zones/:id'" do
       it "Then I see the grow_zone with that dynamic id including the grow_zones attributes" do
       
@@ -42,5 +42,5 @@ describe "As a user" do
       end 
     end 
   end 
-  
+
 end

@@ -13,4 +13,8 @@ class PlantsController < ApplicationController
     # grow_zone.save
     # redirect_to "/"
   end
+
+  def show
+    @plant = Plant.find(params[:id])
+  end
 end
