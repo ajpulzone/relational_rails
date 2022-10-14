@@ -25,7 +25,7 @@ describe "As a user" do
       end
     end 
   end 
-  
+
   #   User Story 2, Parent Show 
   describe "As a visitor" do
     describe "When I visit '/grow_zones/:id'" do
@@ -42,4 +42,5 @@ describe "As a user" do
       end 
     end 
   end 
+  
 end
