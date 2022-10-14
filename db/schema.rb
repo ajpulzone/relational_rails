@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_13_232210) do
+ActiveRecord::Schema.define(version: 2022_10_14_233127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 2022_10_13_232210) do
     t.string "name"
     t.boolean "edible"
     t.integer "harvest_qt"
-    t.integer "grow_zone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "grow_zone_id"
+    t.index ["grow_zone_id"], name: "index_plants_on_grow_zone_id"
   end
 
+  add_foreign_key "plants", "grow_zones"
 end
