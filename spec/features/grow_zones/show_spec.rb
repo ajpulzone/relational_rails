@@ -45,4 +45,21 @@ describe "As a user" do
       end
     end
   end
+
+  #User story 10
+  describe "As a visitor" do
+    describe "When I visit a grow_zones show page" do
+      it "should display a link to that grow_zones' plants page" do
+        
+        visit "/grow_zones/#{@grow_zone1.id}"
+
+        expect(page).to have_link("Plant List", href: "/grow_zones/#{@grow_zone1.id}/plants" )
+        expect(page).to_not have_link("No Plants Here", href:"/grow_zones/#{@grow_zone1.id}/no_plants")
+        #save_and_open_page
+
+        #How do I test that this link actually takes me where I ask it to/it is not broken?
+      end
+    end 
+  end 
+
 end
