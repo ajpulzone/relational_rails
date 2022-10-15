@@ -1,6 +1,6 @@
  class GrowZonesController <ApplicationController
   def index
-    @grow_zones = GrowZone.all
+    @grow_zones = GrowZone.all.order(created_at: :asc)
   end
 
   def new
