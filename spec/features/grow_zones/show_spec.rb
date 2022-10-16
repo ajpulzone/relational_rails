@@ -53,8 +53,10 @@ describe "As a user" do
         
         visit "/grow_zones/#{@grow_zone1.id}"
 
+        expect(current_path).to eq("/grow_zones/1")
+
         expect(page).to have_link("Plant List", href: "/grow_zones/#{@grow_zone1.id}/plants" )
-        expect(page).to_not have_link("No Plants Here", href:"/grow_zones/#{@grow_zone1.id}/no_plants")
+        expect(page).to_not have_link("No Plants Here", href:"/grow_zones/#{@grow_zone2.id}/no_plants")
 
         click_link "Plant List"
         expect(current_path).to eq("/grow_zones/1/plants")
