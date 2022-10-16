@@ -55,8 +55,9 @@ describe "As a user" do
 
         expect(page).to have_link("Plant List", href: "/grow_zones/#{@grow_zone1.id}/plants" )
         expect(page).to_not have_link("No Plants Here", href:"/grow_zones/#{@grow_zone1.id}/no_plants")
-        #save_and_open_page
 
+        click_link "Plant List"
+        expect(current_path).to eq("/grow_zones/1/plants")
         #How do I test that this link actually takes me where I ask it to/it is not broken?
       end
     end 
