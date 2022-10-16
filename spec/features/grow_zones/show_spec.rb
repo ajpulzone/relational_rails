@@ -49,7 +49,8 @@ describe "As a user" do
   #User story 10
   describe "As a visitor" do
     describe "When I visit a grow_zones show page" do
-      it "should display a link to that grow_zones' plants page" do
+      it "then there should be a link that will take me to the specified 
+         grow_zones' plants page" do
         
         visit "/grow_zones/#{@grow_zone1.id}"
 
@@ -60,7 +61,6 @@ describe "As a user" do
 
         click_link "Plant List"
         expect(current_path).to eq("/grow_zones/1/plants")
-        #How do I test that this link actually takes me where I ask it to/it is not broken?
       end
     end 
   end 
