@@ -7,14 +7,10 @@
   end
 
   def create
-    grow_zone = GrowZones.new({
-      id: params[:id],
-      name: params[:grow_zones][:name],
-      sq_feet: params[:grow_zones][:sq_feet],
-      mulched: params[:grow_zones][:mulched]
-    })
-    grow_zone.save
-    redirect_to "/"
+    grow_zone = GrowZone.create!(name: params[:name],
+      sq_feet: params[:sq_feet],
+      mulched: params[:mulched])
+    redirect_to "/grow_zones"
   end
 
   def show

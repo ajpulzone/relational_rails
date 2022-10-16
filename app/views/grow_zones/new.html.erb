@@ -1,11 +1,13 @@
-<form action="/grow_zones" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"
-  <p>Enter a new grow zone: </p>
-  <label for="grow_zones[name]">Name:</label><br>
-  <input type="text" name="grow_zones[name]"/><br/>
-  <label for="grow_zones[sq_feet]">Square Feet:</label><br>
-  <input type="text" name="grow_zones[sq_feet]"/><br/>
-  <label for="grow_zones[mulched]">Mulched? (true/false):</label><br>
-  <input type="text" name="grow_zones[mulched]"/><br/>
-  <input type="submit"/>
-</form>
+<h2> Enter a new grow zone: </h2>
+
+<%= form_with url: "/grow_zones", method: :post, local: true do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :sq_feet %>
+  <%= form.number_field :sq_feet %>
+  <%= form.label :mulched %>
+  <%= form.text_field :mulched %>
+
+  <%= form.submit "Create Grow Zone" %>
+
+  <% end %>
