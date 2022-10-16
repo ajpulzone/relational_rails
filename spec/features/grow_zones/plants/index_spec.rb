@@ -20,7 +20,6 @@ RSpec.describe "Grow zones plants index" do
         visit "/grow_zones/#{@grow_zone1.id}/plants"
 
       expect(page).to have_content(@plant1.id)
-      save_and_open_page
       expect(page).to have_content(@plant1.grow_zone_id)
       expect(page).to have_content(@plant1.edible)
       expect(page).to have_content(@plant1.harvest_qt)
@@ -34,7 +33,8 @@ RSpec.describe "Grow zones plants index" do
       expect(page).to have_content(@plant3.created_at)
       expect(page).to have_content(@plant3.updated_at)
 
-      #need to write "false/lack of content" tests
+      expect(page).to have_no_content("Apples")
+      expect(page).to have_no_content("No Orchard Here")
 
       end
     end
