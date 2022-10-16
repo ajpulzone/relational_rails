@@ -2,6 +2,7 @@
 
 <% @plants.each do |plant| %>
   <h3>Name: <%=plant.name%></h3>
+  <p>Grow Zone ID: <%=plant.grow_zone.id%>
   <p>ID: <%=plant.id%></p>
   <p>Edible: <%=plant.edible%></p>
   <p>Harvest Quantity (lbs): <%=plant.harvest_qt%></p>

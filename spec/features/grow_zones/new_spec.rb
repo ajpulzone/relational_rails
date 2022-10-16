@@ -43,8 +43,7 @@ RSpec.describe "the Grow Zone creation" do
         expect(page).to have_no_button("No Plants Here")
 
         click_button("Create Grow Zone")
-
-        new_grow_zone_id = GrowZone.last.id
+        # new_grow_zone_id = GrowZone.last.id
         expect(current_path).to eq("/grow_zones")
         expect(page).to have_content("Front Orchard")
         expect(page).to have_no_content("No Orchard Here")

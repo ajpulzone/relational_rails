@@ -2,10 +2,13 @@ require "rails_helper"
 
 RSpec.describe "the GrowZones index page", type: :feature do
   before:each do
-    @grow_zone1 = GrowZone.create!(id: 1, name: "Little Derby Orchard", sq_feet: 340, mulched: true)
-    @grow_zone2 = GrowZone.create!(id: 2, name: "Chicken Orchard", sq_feet: 750, mulched: false)
-    @grow_zone3 = GrowZone.create!(id: 3, name: "Garden", sq_feet: 460, mulched: true)
-
+    @grow_zone1 = GrowZone.create!(name: "Little Derby Orchard", sq_feet: 340, mulched: true)
+    @grow_zone2 = GrowZone.create!(name: "Chicken Orchard", sq_feet: 750, mulched: false)
+    @grow_zone3 = GrowZone.create!(name: "Garden", sq_feet: 460, mulched: true)
+    @plant1 = @grow_zone1.plants.create!(name: "Service Berry", edible: true, harvest_qt: 12)
+    @plant2 = @grow_zone2.plants.create!(name: "Apple Tree", edible: true, harvest_qt: 30)
+    @plant3 = @grow_zone1.plants.create!(name: "Yarrow", edible: false, harvest_qt: 5)
+    @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
   
   # User Story 1, Parent Index 
