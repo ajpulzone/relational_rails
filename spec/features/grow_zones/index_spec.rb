@@ -18,7 +18,6 @@ RSpec.describe "the GrowZones index page", type: :feature do
         expect(page).to have_content("Little Derby Orchard")
         expect(page).to have_content("Chicken Orchard")
         expect(page).to have_no_content("No Garden Here")
-
       end
     end
   end
@@ -38,4 +37,5 @@ RSpec.describe "the GrowZones index page", type: :feature do
       end
     end
   end 
+
 end
