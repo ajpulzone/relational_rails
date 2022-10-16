@@ -9,9 +9,8 @@ RSpec.describe "the Grow Zone creation" do
       visit "/grow_zones"
 
       expect(page).to have_link("New Grow Zone")
-
     end
-
+  
     it "When I click the New Grow Zone link I am taken to grow_zones/new where
       I see a form for a new parent record" do
       visit "/grow_zones"
@@ -21,9 +20,7 @@ RSpec.describe "the Grow Zone creation" do
       click_link "New Grow Zone"
       expect(current_path).to eq("/grow_zones/new")
       have_selector "form"
-
     end
-  end
 
     it "When I fill out the form with a new grow_zones' attributes and I click
       on the button 'Create Grow Zone', then a 'POST' request is sent to
@@ -33,19 +30,20 @@ RSpec.describe "the Grow Zone creation" do
 
     #This test is long and does a lot of functionality, is there a way to
     #refactor in smaller pieces? Coded along with Artist/Songs vid 3
-        visit "/grow_zones/new"
+      visit "/grow_zones/new"
 
-        fill_in("Name", with: "Front Orchard")
-        fill_in("sq_feet", with: 600)
-        fill_in("mulched", with: "true")
+      fill_in("Name", with: "Front Orchard")
+      fill_in("sq_feet", with: 600)
+      fill_in("mulched", with: "true")
 
-        expect(page).to have_button("Create Grow Zone")
-        expect(page).to have_no_button("No Plants Here")
+      expect(page).to have_button("Create Grow Zone")
+      expect(page).to have_no_button("No Plants Here")
 
-        click_button("Create Grow Zone")
-        # new_grow_zone_id = GrowZone.last.id
-        expect(current_path).to eq("/grow_zones")
-        expect(page).to have_content("Front Orchard")
-        expect(page).to have_no_content("No Orchard Here")
-       end
+      click_button("Create Grow Zone")
+      # new_grow_zone_id = GrowZone.last.id
+      expect(current_path).to eq("/grow_zones")
+      expect(page).to have_content("Front Orchard")
+      expect(page).to have_no_content("No Orchard Here")
+    end
+  end 
 end
