@@ -14,12 +14,11 @@ RSpec.describe "the GrowZones index page", type: :feature do
       it "shows the name of each grow zone in the system" do
       
         visit "/grow_zones"
-        # save_and_open_page  
 
-        expect(page).to have_content(@grow_zone1.name)
-        expect(page).to have_content(@grow_zone2.name)
+        expect(page).to have_content("Little Derby Orchard")
+        expect(page).to have_content("Chicken Orchard")
+        expect(page).to have_no_content("No Garden Here")
 
-        #need to write "false/lack of content" tests
       end
     end
   end
@@ -31,14 +30,11 @@ RSpec.describe "the GrowZones index page", type: :feature do
           and next to each of the records I see when it was created" do
 
         visit "/grow_zones"
-        #save_and_open_page
 
       expect(@grow_zone1.name).to appear_before(@grow_zone2.name)
       expect(@grow_zone2.name).to appear_before(@grow_zone3.name)
       expect(@grow_zone3.name).to_not appear_before(@grow_zone1.name)
       expect(@grow_zone2.name).to_not appear_before(@grow_zone1.name)
-
-  
       end
     end
   end 
