@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe "the Grow Zone creation" do
 
-#User Story 11: Part 1 (more is contained within new spec)
   describe "When I visit the Grow_Zone index page" do
     it "I see a link to create a new grow_zone record, 'New Grow Zone'" do
 
@@ -40,7 +39,7 @@ RSpec.describe "the Grow Zone creation" do
       expect(page).to have_no_button("No Plants Here")
 
       click_button("Create Grow Zone")
-      # new_grow_zone_id = GrowZone.last.id
+
       expect(current_path).to eq("/grow_zones")
       expect(page).to have_content("Front Orchard")
       expect(page).to have_no_content("No Orchard Here")
