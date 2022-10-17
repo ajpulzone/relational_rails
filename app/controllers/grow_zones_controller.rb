@@ -7,18 +7,26 @@
   end
 
   def create
-    grow_zone = GrowZone.create!(name: params[:name],
-      sq_feet: params[:sq_feet],
-      mulched: params[:mulched])
+    grow_zone = GrowZone.create!(grow_zone_params)
     redirect_to "/grow_zones"
   end
 
   def show
     @grow_zone = GrowZone.find(params[:id])
-    #get the grow zone that is specified, access the database
-    #need to get the id
-    #access the database and save id to an instance variable
-    #that you can access in your view
   end
+
+  def edit
+    @grow_zone = GrowZone.find(params[:id])
+  end
+
+  def update
+    @grow_zone = GrowZone.find(params[:id])
+    @grow_zone.update(grow_zone_params)
+    redirect_to "/grow_zones/#{@grow_zone.id}"
+  end
+
+  def grow_zone_params
+    params.permit(:id, :name, :sq_feet, :mulched, :created_at, :updated_at)
+  end 
 
 end
