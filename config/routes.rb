@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   get "/grow_zones/:id", to: "grow_zones#show"
   get "/grow_zones/:grow_zone_id/plants", to: "grow_zone_plants#index"
   get "/grow_zones/new", to: "grow_zones#new"
+  get "/grow_zones/:id/edit", to: "grow_zones#edit"
+  patch "/grow_zones/:id", to: "grow_zones#update"
 
   get "/plants", to: "plants#index"
-  get "plants/:id", to: "plants#show"
+  get "/plants/:id", to: "plants#show"
   
   
 end

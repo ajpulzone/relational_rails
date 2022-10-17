@@ -15,8 +15,18 @@
     @grow_zone = GrowZone.find(params[:id])
   end
 
+  def edit
+    @grow_zone = GrowZone.find(params[:id])
+  end
+
+  def update
+    @grow_zone = GrowZone.find(params[:id])
+    @grow_zone.update(grow_zone_params)
+    redirect_to "/grow_zones/#{@grow_zone.id}"
+  end
+
   def grow_zone_params
-    params.permit(:name, :sq_feet, :mulched)
+    params.permit(:id, :name, :sq_feet, :mulched, :created_at, :updated_at)
   end 
 
 end

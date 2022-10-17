@@ -1,0 +1,13 @@
+<h2> Update Grow Zone: </h2>
+
+<%= form_with url: "/grow_zones/#{@grow_zone.id}", method: :patch, local: true do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :sq_feet %>
+  <%= form.number_field :sq_feet %>
+  <%= form.label :mulched %>
+  <%= form.text_field :mulched %>
+
+  <%= form.submit "Update Grow Zone" %>
+
+  <% end %>
