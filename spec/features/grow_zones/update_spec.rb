@@ -45,6 +45,10 @@ RSpec.describe "Updating a Grow Zone" do
       fill_in "mulched", with: true
       click_button "Update Grow Zone"
 
+      #The above fill in updates all user attributes but if you leave a section
+      #blank it will change the atrribute value to nil
+      #Need to research how to prevent that from happening
+
       expect(current_path).to eq("/grow_zones/#{grow_zone4.id}")      
       expect(page).to have_content("Back Yard")
       expect(page).to have_content(330)
