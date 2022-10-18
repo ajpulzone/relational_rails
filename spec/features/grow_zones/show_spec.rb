@@ -11,13 +11,11 @@ RSpec.describe "the GrowZones show page", type: :feature do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
 
-  #User Story 2, Parent Show 
-  describe "As a user" do
-    describe "When I visit '/grow_zones/:id'" do
-      it "Then I see the grow_zone with that id including the grow zones' attributes" do
-      
+  describe "#show" do
+    it "When a user visit '/grow_zones/:id', the specified grow_zone is listed along
+      with its attributes" do
+    
       visit "/grow_zones/#{@grow_zone1.id}"
-      #save_and_open_page
 
       expect(page).to have_content(@grow_zone1.id)
       expect(page).to have_content(@grow_zone1.name)
@@ -26,41 +24,32 @@ RSpec.describe "the GrowZones show page", type: :feature do
       expect(page).to have_content(@grow_zone1.created_at)
       expect(page).to have_content(@grow_zone1.updated_at)
 
-      #need to write "false/lack of content" tests
-      end 
+      expect(page).to have_no_content(@grow_zone3.id)
+      expect(page).to have_no_content(@grow_zone3.name)
     end 
-  end 
 
-# User Story 7, Parent Child Count
-describe "As a user" do
-    describe "When I visit '/grow_zones/:id'" do
-      it "Then I see a count of the number of children associated with this parent" do
+    it "shows a count of the number of plants associated with this grow_zone" do
 
       visit "/grow_zones/#{@grow_zone1.id}"
 
       expect(page).to have_content("Number of plants: 2")
       expect(page).to_not have_content("Number of plants: 0")
-      #save_and_open_page
-      end
     end
-  end
 
-  #User story 10
-  describe "As a visitor" do
-    describe "When I visit a grow_zones show page" do
-      it "then there should be a link that will take me to the specified 
-         grow_zones' plants page" do
-        
-        visit "/grow_zones/#{@grow_zone1.id}"
+    it "there should be a link that will take user to the specified grow_zones' plants page" do
+      
+      visit "/grow_zones/#{@grow_zone1.id}"
 
-        expect(current_path).to eq("/grow_zones/#{@grow_zone1.id}")
-        expect(page).to have_link("Plant List", href: "/grow_zones/#{@grow_zone1.id}/plants")
-        expect(page).to_not have_link("No Plants Here", href:"/grow_zones/#{@grow_zone2.id}/no_plants")
+      expect(current_path).to eq("/grow_zones/#{@grow_zone1.id}")
+      expect(page).to have_link("Plant List", href: "/grow_zones/#{@grow_zone1.id}/plants")
+      expect(page).to_not have_link("No Plants Here", href:"/grow_zones/#{@grow_zone2.id}/no_plants")
 
-        click_link "Plant List"
-        expect(current_path).to eq("/grow_zones/#{@grow_zone1.id}/plants")
-      end
-    end 
+      click_link "Plant List"
+      expect(current_path).to eq("/grow_zones/#{@grow_zone1.id}/plants")
+      expect(page).to have_content("Service Berry")
+      expect(page).to have_content("Yarrow")
+      expect(page).to have_no_content("Apple Tree")
+      expect(page).to have_no_content("Rhubarb")
+    end
   end 
-
-end
+end 

@@ -11,8 +11,9 @@ RSpec.describe "The Plants index page", type: :feature do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
 
-  describe "when a user visits '/plants'" do
-    it "They see each plant in the system including the plants' attributes" do
+  describe "#index" do
+    it "when a user visits '/plants' they see each plant in the system 
+      including their attributes" do
 
       visit "/plants"
 

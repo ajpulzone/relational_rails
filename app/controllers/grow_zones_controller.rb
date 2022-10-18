@@ -1,4 +1,5 @@
  class GrowZonesController <ApplicationController
+
   def index
     @grow_zones = GrowZone.all.order(created_at: :asc)
   end
@@ -25,10 +26,8 @@
     redirect_to "/grow_zones/#{@grow_zone.id}"
   end
 
-  private #strong params are only for forms, not website accessibility
-  #Need to update this to un-include id,
+  private
   def grow_zone_params
-    params.permit(:id, :name, :sq_feet, :mulched)
+    params.permit(:name, :sq_feet, :mulched)
   end 
-
 end

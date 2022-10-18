@@ -12,8 +12,9 @@ RSpec.describe "Grow zones plants index" do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
 
-  describe "as a user when I visit '/grow_zones/:id/plants" do
-    it "I see each plant that is associated with that grow_zone id and the attributes for each plant" do
+  describe "#index" do
+    it "when a user visits '/grow_zones/:id/plantseach plant that is associated with the 
+      specified grow_zone and its attributes are seen" do
 
       visit "/grow_zones/#{@grow_zone1.id}/plants"
 
@@ -36,12 +37,13 @@ RSpec.describe "Grow zones plants index" do
       expect(page).to have_no_content(@grow_zone2.name)
     end
 
-    it "and the name of each plant is a link to that plant's show page" do
+    it "the name of each plant is a link to that plant's show page" do
 
       visit "/grow_zones/#{@grow_zone1.id}/plants"
 
       expect(page).to have_link("Service Berry")
       click_link "Service Berry"
+      
       expect(current_path).to eq("/plants/#{@plant1.id}")
       expect(page).to have_content("Service Berry")
       expect(page).to have_content(12)
@@ -51,6 +53,7 @@ RSpec.describe "Grow zones plants index" do
 
       expect(page).to have_link("Yarrow")
       click_link "Yarrow"
+
       expect(current_path).to eq("/plants/#{@plant3.id}")
       expect(page).to have_content("Yarrow")
       expect(page).to have_content(5)

@@ -12,8 +12,9 @@ RSpec.describe "The Plants page", type: :feature do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
 
-  describe "as a user when I visit '/plants/:id'" do
-    it "Then I see the plant with the specified id including the plants' attributes" do
+  describe "#show" do
+    it "when a user visits '/plants/:id', they see the specified plant including 
+      the plants' attributes" do
       
       visit "/plants/#{@plant1.id}"
 

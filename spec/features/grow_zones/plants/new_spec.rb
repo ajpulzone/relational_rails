@@ -12,8 +12,9 @@ RSpec.describe "Creating a New Plant" do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)
   end
 
-  describe "When a user visits a grow_zones' plants index page" do
-    it "There is a link to add a new plant to that grow_zone called 'Create Plant'" do
+  describe "#create" do
+    it "When a user visits a grow_zones' plants index page, there is a link to add a new 
+      plant to that grow_zone called 'Create Plant'" do
 
       visit "/grow_zones/#{@grow_zone1.id}/plants"
 
@@ -27,7 +28,7 @@ RSpec.describe "Creating a New Plant" do
     end
     
     it "When the 'Create Plant' link is clicked, the user is taken to the 'grow_zone/
-      :grow_zone_id/plants/new' page where I see a form to add a new plant" do
+      :grow_zone_id/plants/new' page where there is a form to add a new plant" do
 
       visit "/grow_zones/#{@grow_zone1.id}/plants"
       

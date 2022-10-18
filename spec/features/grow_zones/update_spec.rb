@@ -8,8 +8,7 @@ RSpec.describe "Updating a Grow Zone" do
     @grow_zone3 = GrowZone.create!(name: "Garden", sq_feet: 460, mulched: true)
   end
   
-  # User Story 12, Parent Update 
-  describe "Updating a Grow Zone" do
+  describe "#update" do
     it "When a Grow Zones' show page is visited, there is a link labeled 
       'Update Grow Zone' to update the grow zone" do
       
@@ -18,7 +17,7 @@ RSpec.describe "Updating a Grow Zone" do
       expect(page).to have_link("Update Grow Zone")
     end
 
-    it "When I click the link 'Update Grow Zone' then user is redirected to
+    it "When the link 'Update Grow Zone' is clicked then user is redirected to
       '/grow_zones/:id/edit' where there is a form to edit the grow_zones'
       attributes" do
       
@@ -44,11 +43,7 @@ RSpec.describe "Updating a Grow Zone" do
       fill_in "sq_feet", with: 330
       fill_in "mulched", with: true
       click_button "Update Grow Zone"
-
-      #The above fill in updates all user attributes but if you leave a section
-      #blank it will change the atrribute value to nil
-      #Need to research how to prevent that from happening
-
+      
       expect(current_path).to eq("/grow_zones/#{grow_zone4.id}")      
       expect(page).to have_content("Back Yard")
       expect(page).to have_content(330)

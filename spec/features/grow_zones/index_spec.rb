@@ -11,34 +11,25 @@ RSpec.describe "the GrowZones index page", type: :feature do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
   
-  # User Story 1, Parent Index 
-  describe "As a user" do
-    describe "When I visit '/grow_zones'" do
-      it "shows the name of each grow zone in the system" do
-      
-        visit "/grow_zones"
+  describe "#show" do
+    it "When a user visits '/grow_zones' it will have a list of each grow zone in the system" do
+    
+      visit "/grow_zones"
 
-        expect(page).to have_content("Little Derby Orchard")
-        expect(page).to have_content("Chicken Orchard")
-        expect(page).to have_no_content("No Garden Here")
-      end
+      expect(page).to have_content("Little Derby Orchard")
+      expect(page).to have_content("Chicken Orchard")
+      expect(page).to have_no_content("No Garden Here")
     end
-  end
 
-# User Story 6, Parent Index sorted by Most Recently Created 
-  describe "As a user" do
-    describe "When I visit '/grow_zones'" do
-      it "I see that records are ordered by most recently created first
-          and next to each of the records I see when it was created" do
+    it "the records are ordered by most recently created first
+      and next to each of the records I see when it was created" do
 
-        visit "/grow_zones"
+      visit "/grow_zones"
 
       expect(@grow_zone1.name).to appear_before(@grow_zone2.name)
       expect(@grow_zone2.name).to appear_before(@grow_zone3.name)
       expect(@grow_zone3.name).to_not appear_before(@grow_zone1.name)
       expect(@grow_zone2.name).to_not appear_before(@grow_zone1.name)
-      end
     end
   end 
-
 end
