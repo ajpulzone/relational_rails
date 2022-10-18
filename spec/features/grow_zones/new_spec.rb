@@ -2,16 +2,18 @@ require "rails_helper"
 
 RSpec.describe "the Grow Zone creation" do
 
-  describe "When I visit the Grow_Zone index page" do
-    it "I see a link to create a new grow_zone record, 'New Grow Zone'" do
+  describe "#new" do
+    it "When a user visits the Grow_Zone index page they see the link 'New Grow Zone' to create 
+      a new grow_zone record" do
 
       visit "/grow_zones"
 
       expect(page).to have_link("New Grow Zone")
     end
   
-    it "When I click the New Grow Zone link I am taken to grow_zones/new where
-      I see a form for a new parent record" do
+    it "When the New Grow Zone link is clicked, the user is taken to grow_zones/new where
+      there is a form to create a new grow_zone record" do
+
       visit "/grow_zones"
 
       expect(page).to have_link("New Grow Zone")
@@ -21,14 +23,11 @@ RSpec.describe "the Grow Zone creation" do
       have_selector "form"
     end
 
-    it "When I fill out the form with a new grow_zones' attributes and I click
-      on the button 'Create Grow Zone', then a 'POST' request is sent to
-      the '/grow_zones' route, a new parent record is created and I am
-      redirected to the Grow Zone index page where I see the new Grow Zone 
-      displayed" do
+    it "When the form is filled out with a new grow_zones' attributes and the button
+      'Create Grow Zone' is clicked, then a 'POST' request is sent to
+      the '/grow_zones' route, a new grow_zone record is created and the user is
+      redirected to the Grow Zone index page where the new Grow Zone is displayed" do
 
-    #This test is long and does a lot of functionality, is there a way to
-    #refactor in smaller pieces? Coded along with Artist/Songs vid 3
       visit "/grow_zones/new"
 
       fill_in("Name", with: "Front Orchard")

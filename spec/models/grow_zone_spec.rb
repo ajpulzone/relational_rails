@@ -15,9 +15,11 @@ RSpec.describe GrowZone, type: :model do
 
   describe "#plant_count" do
     it "returns the number of plants associated with the specified grow zone" do
-      expect(@grow_zone1.plant_count).to be(2)
-      expect(@grow_zone2.plant_count).to be(2)
-      expect(@grow_zone3.plant_count).to be(0)
+
+      expect(@grow_zone1.plant_count).to eq(2)
+      expect(@grow_zone2.plant_count).to eq(2)
+      expect(@grow_zone3.plant_count).to_not eq(1)
+
     end
   end
 end

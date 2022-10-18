@@ -2,7 +2,7 @@
 <%= link_to "Create Plant", "/grow_zones/#{@grow_zone.id}/plants/new" %>
 
 <% @plants.each do |plant| %>
-  <h3>Name: <%=plant.name%></h3>
+  <h3>Name: <a href="/plants/<%=plant.id%>"><%=plant.name%></a></h3>
   <p>Grow Zone ID: <%=plant.grow_zone.id%>
   <p>ID: <%=plant.id%></p>
   <p>Edible: <%=plant.edible%></p>
@@ -10,4 +10,4 @@
   <p>Created At: <%=plant.created_at%></p>
   <p>Updated At: <%=plant.updated_at%></p><br>
 
-  <% end %>
+<% end %>
