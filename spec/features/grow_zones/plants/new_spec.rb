@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Creating a New Plant" do
+
   before:each do
     @grow_zone1 = GrowZone.create!(name: "Little Derby Orchard", sq_feet: 340, mulched: true)
     @grow_zone2 = GrowZone.create!(name: "Chicken Orchard", sq_feet: 750, mulched: false)
@@ -11,7 +12,6 @@ RSpec.describe "Creating a New Plant" do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)
   end
 
-#User Story 13, Parent Child Creation 
   describe "When a user visits a grow_zones' plants index page" do
     it "There is a link to add a new plant to that grow_zone called 'Create Plant'" do
 
@@ -36,9 +36,9 @@ RSpec.describe "Creating a New Plant" do
       have_selector "form"
     end
 
-    it "When I fill in the form with the plants' attributes, and I click the button
-      'Create Plant', then a 'POST' request is sent to 'grow_zones/:grow_zone_id/plants'
-      a new plant object/row is created for that parent, and user is redirected to
+    it "When user fills in the form with the plants' attributes, and the button
+      'Create Plant' is clicked, then a 'POST' request is sent to 'grow_zones/:grow_zone_id/plants'
+      a new plant object/row is created for that grow_zone, and user is redirected to
       the grow_zone plant index page where the new plant is listed" do
 
       visit "/grow_zones/#{@grow_zone1.id}/plants/new"
