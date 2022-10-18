@@ -12,12 +12,10 @@ RSpec.describe "Grow zones plants index" do
     @plant4 = @grow_zone2.plants.create!(name: "Rhubarb", edible: true, harvest_qt: 60)    
   end
 
-  # User Story 5, Parent Children Index 
-  describe "As a user" do
-    describe "When I visit '/grow_zones/:id/plants" do
-      it "I see each plant that is associated with that grow_zone id and the attributes for each plant" do
+  describe "as a user when I visit '/grow_zones/:id/plants" do
+    it "I see each plant that is associated with that grow_zone id and the attributes for each plant" do
 
-        visit "/grow_zones/#{@grow_zone1.id}/plants"
+      visit "/grow_zones/#{@grow_zone1.id}/plants"
 
       expect(page).to have_content(@plant1.id)
       expect(page).to have_content(@plant1.grow_zone_id)
@@ -33,10 +31,30 @@ RSpec.describe "Grow zones plants index" do
       expect(page).to have_content(@plant3.created_at)
       expect(page).to have_content(@plant3.updated_at)
 
-      expect(page).to have_no_content("Apples")
-      expect(page).to have_no_content("No Orchard Here")
+      expect(page).to have_no_content(@plant2.name)
+      expect(page).to have_no_content(@plant4.name)
+      expect(page).to have_no_content(@grow_zone2.name)
+    end
 
-      end
+    it "and the name of each plant is a link to that plant's show page" do
+
+      visit "/grow_zones/#{@grow_zone1.id}/plants"
+
+      expect(page).to have_link("Service Berry")
+      click_link "Service Berry"
+      expect(current_path).to eq("/plants/#{@plant1.id}")
+      expect(page).to have_content("Service Berry")
+      expect(page).to have_content(12)
+      expect(page).to have_no_content("Apple Tree")
+
+      visit "/grow_zones/#{@grow_zone1.id}/plants"
+
+      expect(page).to have_link("Yarrow")
+      click_link "Yarrow"
+      expect(current_path).to eq("/plants/#{@plant3.id}")
+      expect(page).to have_content("Yarrow")
+      expect(page).to have_content(5)
+      expect(page).to have_no_content("Service Berry")
     end
   end
 end
