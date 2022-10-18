@@ -63,19 +63,19 @@ User Story 7, Parent Child Count
 
 **Usability**
 
-[ ] done
+[X] done
 User Story 8, Child Index Link
   As a visitor
   When I visit any page on the site
   Then I see a link at the top of the page that takes me to the Child Index
 
-[ ] done
+[X] done
 User Story 9, Parent Index Link
   As a visitor
   When I visit any page on the site
   Then I see a link at the top of the page that takes me to the Parent Index
 
-[ ] done
+[X] done
 User Story 10, Parent Child Index Link
   As a visitor
   When I visit a parent show page ('/parents/:id')
@@ -86,7 +86,7 @@ User Story 10, Parent Child Index Link
 
 **CRUD**
 
-[ ] done
+[X] done
 User Story 11, Parent Creation 
   As a visitor
   When I visit the Parent Index page
@@ -99,7 +99,7 @@ User Story 11, Parent Creation
   a new parent record is created,
   and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-[ ] done
+[X] done
 User Story 12, Parent Update 
   As a visitor
   When I visit a parent show page
@@ -112,7 +112,7 @@ User Story 12, Parent Update
   the parent's info is updated,
   and I am redirected to the Parent's Show page where I see the parent's updated info
 
-[ ] done
+[X] done
 User Story 13, Parent Child Creation 
   As a visitor
   When I visit a Parent Children Index page

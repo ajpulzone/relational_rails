@@ -13,7 +13,7 @@ RSpec.describe "Grow zones plants index" do
   end
 
   # User Story 5, Parent Children Index 
-  describe "As a used" do
+  describe "As a user" do
     describe "When I visit '/grow_zones/:id/plants" do
       it "I see each plant that is associated with that grow_zone id and the attributes for each plant" do
 

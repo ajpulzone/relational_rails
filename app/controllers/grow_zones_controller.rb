@@ -25,8 +25,10 @@
     redirect_to "/grow_zones/#{@grow_zone.id}"
   end
 
+  private #strong params are only for forms, not website accessibility
+  #Need to update this to un-include id,
   def grow_zone_params
-    params.permit(:id, :name, :sq_feet, :mulched, :created_at, :updated_at)
+    params.permit(:id, :name, :sq_feet, :mulched)
   end 
 
 end

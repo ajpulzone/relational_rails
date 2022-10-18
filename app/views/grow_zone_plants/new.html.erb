@@ -1,0 +1,13 @@
+<h2>Enter a New Plant:</h2>
+
+<%= form_with url: "/grow_zones/#{@grow_zone.id}/plants", method: :post, local: true do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :edible %>
+  <%= form.text_field :edible %>
+  <%= form.label :harvest_qt %>
+  <%= form.number_field :harvest_qt %>
+
+  <%= form.submit "Create Plant" %>
+
+  <% end %>
