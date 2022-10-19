@@ -139,7 +139,7 @@ User Story 14, Child Update
 
 **ActiveRecord**
 
-[ ] done
+[X] done
 User Story 15, Child Index only shows `true` Records 
   As a visitor
   When I visit the child index
