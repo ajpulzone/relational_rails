@@ -12,8 +12,8 @@ RSpec.describe "The Plants index page", type: :feature do
   end
 
   describe "#index" do
-    it "when a user visits '/plants' they see each plant in the system 
-      including their attributes" do
+    it "when a user visits the '/plants' index page they only see plants (with their attributes) 
+      that have 'true' as the value in the 'edible' column" do
 
       visit "/plants"
 
@@ -25,21 +25,12 @@ RSpec.describe "The Plants index page", type: :feature do
       expect(page).to have_content(@plant1.created_at)
       expect(page).to have_content(@plant1.updated_at)
 
-      expect(page).to have_content(@plant2.id)
-      expect(page).to have_content(@plant2.grow_zone_id)
       expect(page).to have_content(@plant2.name)
-      expect(page).to have_content(@plant2.edible)
-      expect(page).to have_content(@plant2.harvest_qt)
-      expect(page).to have_content(@plant2.created_at)
-      expect(page).to have_content(@plant2.updated_at)
-
-      expect(page).to have_content(@plant3.name)
       expect(page).to have_content(@plant4.name)
-
-      expect(page).to have_no_content(@grow_zone1.name)
-      expect(page).to have_no_content(@grow_zone3.name)
+      expect(page).to have_no_content(@plant3.name)
+      expect(page).to have_no_content(false)
     end
-
+    
     it "each plant name should be a link that takes the user to the 
       specified plant's show page" do
 
